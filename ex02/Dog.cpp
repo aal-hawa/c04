@@ -1,6 +1,6 @@
 #include "Dog.hpp"
 
-Dog::Dog()
+Dog::Dog(): Animal()
 {
 	type = "Dog";
 	brain = new Brain();
@@ -17,6 +17,8 @@ Dog &Dog::operator=(const Dog &other)
 	if (this != &other)
 	{
 		Animal::operator=(other);
+		if (!brain)
+			brain = new Brain();
 		*brain = *other.brain;
 		std::cout << "Dog assignment operator called" << std::endl;
 	}

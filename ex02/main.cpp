@@ -9,6 +9,7 @@ int main()
 {
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
+	// const Animal* meta = new Animal(); // should fail to compile now
 	delete j;//should not create a leak
 	delete i;
 

@@ -1,7 +1,7 @@
 #include "Cat.hpp"
 #include "Brain.hpp"
 
-Cat::Cat()
+Cat::Cat() : Animal()
 {
 	type = "Cat";
 	brain = new Brain();
@@ -17,7 +17,9 @@ Cat &Cat::operator=(const Cat &other)
 	if (this != &other)
 	{
 		Animal::operator=(other);
-		brain = new Brain(*other.brain);
+		if (!brain)
+			brain = new Brain();
+		*brain = *other.brain;
 		std::cout << "Cat assignment operator called" << std::endl;
 	}
 	return *this;
